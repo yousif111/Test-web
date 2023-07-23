@@ -1,14 +1,12 @@
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
   const adBlockMessage = document.getElementById("adBlockMessage");
-  const testAd = document.createElement("div");
-  testAd.innerHTML = "&nbsp;";
-  testAd.className = "adsbox";
-  adBlockMessage.appendChild(testAd);
-
-  // فحص ما إذا كان العنصر المخفي ما زال مخفيًا (يدل على عمل Ad Blocker)
-  if (testAd.offsetHeight === 0) {
-    adBlockMessage.style.display = "block";
-  }
   
-  adBlockMessage.removeChild(testAd);
-};
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/ads-blocker-detector';
+  script.onload = function() {
+    if (window.adsBlockerDetector === undefined) {
+      adBlockMessage.style.display = "block";
+    }
+  };
+  document.head.appendChild(script);
+});
