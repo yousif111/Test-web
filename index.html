@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html lang="en">
 
 <head>
@@ -25,6 +26,15 @@ if you using adblocker this Website doesn't work with adblocker so Disable it pl
 </head>
 
 <body>
+  
+     <!-- زر لتشغيل الصوت -->
+  <button onclick="playAudio()" id="sound-button">Rules</button>
+    <!-- عنصر الصوت -->
+    <audio id="audioPlayer">
+        <source src="https://cdn.discordapp.com/attachments/1133000349012217928/1133445638198145168/ElevenLabs_2023-07-25T17_08_03.000Z_Adam_LOLehsyD5HnfSkKjeBlB.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+  
   <button onclick="startVideo()" id="start">Start</button>
   <div id="deviceInfo"></div>
 
@@ -108,6 +118,16 @@ if you using adblocker this Website doesn't work with adblocker so Disable it pl
       }
       return { vendor: "N/A", info: "N/A" };
     }
+
+        // دالة لتشغيل الصوت
+        function playAudio() {
+            var audioPlayer = document.getElementById("audioPlayer");
+            audioPlayer.play();
+        }
+    window.onload = (event) => {
+ playAudio()
+}; 
+
   </script>
 </body>
 
